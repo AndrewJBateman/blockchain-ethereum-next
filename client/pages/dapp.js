@@ -52,7 +52,7 @@ class Dapp extends React.Component {
   }
 }
 
-export default () => (
+const dappContainer = () => (
   <Web3Container
     renderLoading={() => <div>Loading Dapp Page...</div>}
     render={({ web3, accounts, contract }) => (
@@ -60,3 +60,4 @@ export default () => (
     )}
   />
 )
+export default dappContainer
