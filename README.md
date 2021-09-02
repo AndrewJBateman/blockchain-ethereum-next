@@ -1,6 +1,6 @@
 # Blockchain Ethereum Next
 
-* Truffle Framework used to create an Ethereum app using Javascript and Solidity.
+* Truffle Framework for Ethereum used to interact with smart contracts in a browser using Javascript and Solidity with a Next.js frontend.
 * Code from [Tony Pun](https://www.youtube.com/channel/UCBqJ3qgbyTxanJyZzflHvLQ) who uses a 'Truffle Box' boilerplate but this required some changes to work and to remove some errors - see [:clap: Inspiration](#clap-inspiration) below.
 * **Note:** to open web links in a new window use: _ctrl+click on link_
 
@@ -28,9 +28,11 @@
 ## :books: General info
 
 * Ethereum blockchain app is written in Solidity, similar to Javascript
+* Truffle web3 used to interact with smart contracts in client-side javascript
 * Truffle suite includes [Truffle Boxes](https://www.trufflesuite.com/boxes) with boiler-plate code. All are 3-4 years old so there can be issues with dependencies as well as old javascript code that works but causes errors.
+* [@truffle/contract](https://github.com/trufflesuite/truffle/tree/master/packages/contract) used for contract abstraction - uses synchronized transactions and promises/async-await
 * The app displays a very basic user interface that shows a list of 10 created accounts and allows some user interactions
-* Google Chrome Extension Metamask used to connect with the app - custom network added to connect on `localhost:9545`
+* Google Chrome Extension Metamask used to interact with dapps in a browser - custom network added to connect on `localhost:9545`
 * client folder includes it's own readme
 
 ## :camera: Screenshots
@@ -54,7 +56,7 @@
 * `migrate` to migrate app
 
 **Frontend:**
-* ``cd client`then `npm run dev` for a Next.js dev server, restarts on changes
+* `cd client` to change directory then `npm run dev` for a Next.js dev server, restarts on changes
 
 **Metamask (if using)**
 * add custom network to connect on `localhost:9545` (I called mine 'test' and used the same id)
@@ -65,10 +67,17 @@
 
 ## :computer: Code Examples
 
-* tba
+* `accounts.js` function to use JSON.stringify(value, replacer, space) to display accounts list. Code from Truffle Box boilerplate + modification
 
-```solidity
-
+```javascript
+const Accounts = ({ accounts }) => (
+  <div>
+    <h1>Decentralised App Accounts</h1>
+    <pre>{JSON.stringify(accounts, null, 4)}</pre>
+    <div><Link href='/dapp'><a>My Dapp</a></Link></div>
+    <div><Link href='/'><a>Home</a></Link></div>
+  </div>
+)
 ```
 
 ## :cool: Features
@@ -83,6 +92,7 @@
 
 * [Tony Pun: Creating a Ethereum Solidity Dapp with Next.js 2021](https://www.youtube.com/watch?v=WPXvs9-krGs)
 * [Truffle Suite: A MINIMAL SMART CONTRACT DEVELOPMENT BOILERPLATE](https://www.trufflesuite.com/boxes/truffle-next)
+* [IBM: What are smart contracts on blockchain?](https://www.ibm.com/topics/smart-contracts)
 
 ## :file_folder: License
 
